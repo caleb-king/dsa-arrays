@@ -1,0 +1,56 @@
+constant time - O(1)
+logarithmic time - O(log(n))
+linear time - O(n)
+polynomial time - O(n^k)
+exponential time - O(2^n)
+
+1. Implement an Array class from scratch.
+    - (See array.js)
+
+2. Explore the push() method
+    - length = 1, capacity = 3, and memory address = 0
+    - (after adding the new lines of code:)
+    - length = 6, capacity = 12, and memory address = 3
+    - Explain the result of your program after adding the new lines of code.
+        - Pushing 5 additional values onto the array lengthened it to 6
+        - The allocated memory was exceded twice causing _resize() to run. When resizing, the ptr was updated and the capacity was increased by (this.length + 1) * Array.SIZE_RATIO). So it went from 0 to 3 to 12.
+
+3. Exploring the pop() method
+    - length = 3, capacity = 12, and memory address = 3
+    - Explain the result of your program after adding the new lines of code.
+        - The last three elements of the array were removed.
+        - The length is decreased by 1 every time pop() is called - reducing it down to 3
+        - the capacity and memory address remained the same because the array did not require resizing.
+
+4. Understanding more about how arrays work
+    - What is the result? Can you explain your result?
+        - 'NaN'. I am getting this result any time I push() a string into one of the elements and then get() that string.
+        - If I remove the elements using remove(), it seems to properly retrieve whatever numerical value I push on the empty array.
+    - What is the purpose of the _resize() function in your Array class?
+        - The resize function is used to properly allocate memory for the array. If the capacity will be exceded when adding a new item to the array, a new memory location and size is needed in order to prevent potentially overwriting other memory. The array needs more memory and therefore expands its capacity by (length + 1) * Array.SIZE_RATIO. It also recieves a new pointer for the new memory location.
+
+(For the remaining solutions, see index.js)
+
+5. URLify a string
+    - linear time O(n)
+
+6. Filtering an array
+    - linear time O(n)
+
+7. Max sum in the array
+    - polynomial time - O(n^k)
+
+8. Merge arrays
+    - linear time O(n)
+
+9. Remove characters
+    - polynomial time - O(n^k)
+
+10. Products
+    - polynomial time - O(n^k)
+
+11. 2D array
+    - polynomial time - O(n^k)
+
+12. String rotation
+    - polynomial time - O(n^k)
